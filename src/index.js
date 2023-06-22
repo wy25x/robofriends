@@ -9,6 +9,8 @@ import { searchRobots, requestRobots } from './reducers'
 import { createLogger } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk';
 
+import * as serviceWorker from './serviceWorkerRegistration';
+
 const rootReducer = combineReducers({searchRobots, requestRobots});
 
 const logger = createLogger();
@@ -22,3 +24,5 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+
+serviceWorker.register()
