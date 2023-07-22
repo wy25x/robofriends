@@ -12,9 +12,9 @@ jobs:
     steps:
       - checkout
       - run: echo "DT"
-  workflows:
-    version: 2
-    users:
-      jobs:
-        - user1
-        - user2
+workflows:
+  version: 2
+  users:
+    jobs:
+      - user1
+      - user2
