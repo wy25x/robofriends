@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  user1:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "SOLO"
+  user2:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "DT"
+  workflows:
+    version: 2
+    users:
+      jobs:
+        - user1
+        - user2

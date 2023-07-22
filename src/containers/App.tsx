@@ -34,8 +34,6 @@ interface IRequestRobots {
 }
 
 interface IAppState {
-	robots: Array<IRobot>,
-	searchfield: string,
 	searchRobots: ISearchRobots,
 	requestRobots: IRequestRobots
 }
