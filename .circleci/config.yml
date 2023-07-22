@@ -2,23 +2,19 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.9
+      - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: echo "npm installing..."
-      - run: npm install
-      - run: CI=true npm run build
-  test:
+      - run: echo "SOLO"
+  user2:
     docker:
-      - image: circleci/node:8.9
+      - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      - run: echo "testing"
-      - run: npm install
-      - run: npm test
+      - run: echo "DT"
 workflows:
   version: 2
-  build_test:
+  users:
     jobs:
-      - build
-      - test
+      - user1
+      - user2
