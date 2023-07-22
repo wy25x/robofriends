@@ -1,20 +1,22 @@
-version: 2
+version: 2.1 
 jobs:
-  user1:
-    docker:
-      - image: circleci/ruby:2.4.1
-    steps:
-      - checkout
-      - run: echo "SOLO"
-  user2:
-    docker:
-      - image: circleci/ruby:2.4.1
-    steps:
-      - checkout
-      - run: echo "DT"
+   build:
+     docker:
+       - image: circleci/node:latest
+     steps:
+       - checkout
+       - run: npm install
+       - run: CI=true npm run build
+   test:
+     docker:
+       - image: circleci/node:latest
+     steps:
+       - checkout
+       - run: npm install
+       - run: npm run test
 workflows:
   version: 2
-  users:
+  build-test-and-lint:
     jobs:
-      - user1
-      - user2
+      - build
+      - test
